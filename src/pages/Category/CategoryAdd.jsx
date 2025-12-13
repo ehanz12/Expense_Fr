@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "../../api/axios";
 import Sidebar from "../../components/Sidebar";
-import { Navigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
+
 
 export default function CategoryAdd() {
   const [name, setName] = useState("");
   const [icon, setIcon] = useState("");
+  const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
@@ -17,7 +19,8 @@ export default function CategoryAdd() {
       alert("Category added!");
       setName(""); // reset field
       setIcon("")
-      return <Navigate to="/categories" />;
+
+      return navigate("/categories");
 
     } catch (err) {
       console.error("ERR:", err.response?.data || err);

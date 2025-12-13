@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import Sidebar from "../../components/Sidebar";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function ExpenseAdd() {
+  const navigate = useNavigate();
+
   const [categoryID, setCategoryID] = useState("");
   const [amount, setAmount] = useState("");
   const [note, setNote] = useState("");
@@ -30,7 +32,7 @@ export default function ExpenseAdd() {
 
       console.log("ADD SUCCESS:", res.data);
       alert("Expense added!");
-      return <Navigate to="/expenses" />;
+      return navigate("/expenses");
     } catch (err) {
       console.error("ERR ADD EXPENSE:", err.response?.data || err);
       alert("Gagal menambahkan expense!");
