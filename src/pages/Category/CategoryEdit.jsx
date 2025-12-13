@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import axios from "../../api/axios";
 import Sidebar from "../../components/Sidebar";
 
@@ -37,7 +37,7 @@ export default function CategoryEdit() {
       });
 
       alert("Category updated!");
-      navigate("/categories");
+      return <Navigate to="/categories" />;
     } catch (err) {
       console.error(err.response?.data);
       alert("Gagal update category!");

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import axios from "../../api/axios";
 import Sidebar from "../../components/Sidebar";
 
@@ -54,7 +54,7 @@ export default function ExpenseEdit() {
       });
 
       alert("Expense updated!");
-      navigate("/expenses");
+      return <Navigate to="/expenses" />;
     } catch (err) {
       console.error("UPDATE ERROR:", err.response?.data || err);
       alert("Gagal update expense!");

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "../../api/axios";
 import Sidebar from "../../components/Sidebar";
+import { Navigate } from "react-router-dom";
 
 export default function CategoryAdd() {
   const [name, setName] = useState("");
@@ -16,7 +17,7 @@ export default function CategoryAdd() {
       alert("Category added!");
       setName(""); // reset field
       setIcon("")
-      window.location = "/categories";
+      return <Navigate to="/categories" />;
 
     } catch (err) {
       console.error("ERR:", err.response?.data || err);

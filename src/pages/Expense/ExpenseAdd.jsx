@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import Sidebar from "../../components/Sidebar";
+import { Navigate } from "react-router-dom";
 
 export default function ExpenseAdd() {
   const [categoryID, setCategoryID] = useState("");
@@ -29,7 +30,7 @@ export default function ExpenseAdd() {
 
       console.log("ADD SUCCESS:", res.data);
       alert("Expense added!");
-      window.location = "/expenses"
+      return <Navigate to="/expenses" />;
     } catch (err) {
       console.error("ERR ADD EXPENSE:", err.response?.data || err);
       alert("Gagal menambahkan expense!");
