@@ -52,7 +52,7 @@ export function AuthProvider({ children }) {
             showConfirmButton: false,
           });
 
-          window.location.href = "/login";
+          window.location.href = "/";
           // atau navigasi dengan react-router:
           // navigate("/login");
         } catch (err) {
