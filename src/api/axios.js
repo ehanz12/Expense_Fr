@@ -48,7 +48,7 @@ instance.interceptors.response.use(
           timer: 2000,
           showConfirmButton: false,
         }).then(() => {
-          window.location.href = "/login";
+          window.location.href = "/";
         });
       }
     }
