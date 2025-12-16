@@ -10,6 +10,8 @@ import CategoryEdit from "../pages/Category/CategoryEdit"
 import ExpenseList from "../pages/Expense/ExpenseList"
 import ExpenseEdit from "../pages/Expense/Expense.Edit"
 import ExpenseAdd from "../pages/Expense/ExpenseAdd"
+import DashboardSavings from "../pages/Savings/DashboardSavings";
+import JoinSavings from "../pages/Savings/JoinSavings";
 
 export default function AppRouter() {
   const { token } = useContext(AuthContext);
@@ -25,6 +27,16 @@ export default function AppRouter() {
         <Route
           path="/"
           element={token ? <Dashboard /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/dashboard/savings"
+          element={token ? <DashboardSavings /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/dashboard/savings/join"
+          element={token ? <JoinSavings /> : <Navigate to="/login" />}
         />
 
         <Route

@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { FiHome, FiList, FiFolder, FiLogOut } from "react-icons/fi";
+import { FiHome, FiList, FiFolder, FiLogOut, FiDollarSign } from "react-icons/fi";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { PiFileJpgBold, PiJoystickThin } from "react-icons/pi";
 
 export default function Sidebar() {
     const location = useLocation();
@@ -11,6 +12,8 @@ export default function Sidebar() {
         { path: "/", label: "Dashboard", icon: <FiHome /> },
         { path: "/expenses", label: "Expenses", icon: <FiList /> },
         { path: "/categories", label: "Categories", icon: <FiFolder /> },
+        { path: "/dashboard/savings", label: "Savings", icon: <FiDollarSign /> },
+        { path: "/dashboard/savings/join", label: "JoinSavings", icon: <PiJoystickThin /> },
     ];
 
     return (
